@@ -8,7 +8,7 @@ var connection = mysql.createConnection({
     host: "localhost",
     port: 3306,
     user: "root",
-    password: "R@gnorok303B@man",
+    password: "",
     database: "bamazon"
 });
 
@@ -65,6 +65,7 @@ function showTable(newPurchases) {
 
 function updateItems() {
     connection.query("SELECT * FROM products", function (err, response) {
+        if (err) throw err;
         inquirer
             .prompt([
                 {
